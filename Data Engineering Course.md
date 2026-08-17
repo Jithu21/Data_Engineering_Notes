@@ -34,5 +34,15 @@ Syntax.
 CREATE TEMPORARY TABLE table_name (
     column1 datatype,
     column2 datatype,
-    column3 datatype;
+    column3 datatype
+);
+```
+#### Temporary Table Using CTAS
+- A temporary table can also be created using CTAS (Create Table As Select).
+
+-Copy All Records
+```sql
+CREATE TEMPORARY TABLE temp_employees AS
+SELECT *
+FROM employees_day;
 ```
