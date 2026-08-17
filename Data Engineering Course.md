@@ -16,11 +16,23 @@
 - Definition:  
         CTAS (Create Table As Select) is used to create a new table from the result of a SELECT query. The new table will contain the data returned by the query.
 - Suppose we already have a table named employees_day with 50 records. We can use this table to create another table for experimentation without affecting the original data.
-     **Syntax:**
+    
 
 ```sql
 CREATE TABLE new_table_name AS
 SELECT column_name(s)
 FROM existing_table
 WHERE condition;
+```
+- #### 3. Temporary Table
+Definition:  
+- A Temporary Table is used to store data temporarily. The table exists only for the duration of the current database session and is automatically removed when the session ends.
+- For example, if you create a temporary table in Jupyter Notebook, it will only be available in that Jupyter SQL session. It will not be visible in another session, such as MySQL Workbench.
+
+Syntax. 
+```sql
+CREATE TEMPORARY TABLE table_name (
+    column1 datatype,
+    column2 datatype,
+    column3 datatype;
 ```
