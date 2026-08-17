@@ -5,10 +5,22 @@
 ## Week  of learning SQL (Aug 10,11,12,14)
 - I have learned the SQL  for about 4 days.
 - In that i have learned about the some basic syntax and work flow of the structured query language 
-    . SQL (Structured Query Language) is a standard language used to store, retrieve, update, and manage data in relational databases. It allows users to create databases, define tables, insert records, modify data, delete data, and query information efficiently.
+- SQL (Structured Query Language) is a standard language used to store, retrieve, update, and manage data in relational databases. It allows users to create databases, define tables, insert records, modify data, delete data, and query information efficiently.
 - we know the basic concept which is SELECT, FROM ,WHERE statement and aggregate function to use it in the SQL and purpose of the function we know that.
         
 ### Different Types of Table Creation
-- 1. Normal Table
-    Definition:
+-  #### 1.Normal Table. 
+- Definition:  
         A Normal Table is a regular database table used to store data permanently. The data remains in the table until it is explicitly updated, deleted, or the table is dropped.
+- #### 2.CTAS (Create Table As Select). 
+- Definition:  
+        CTAS (Create Table As Select) is used to create a new table from the result of a SELECT query. The new table will contain the data returned by the query.
+- Suppose we already have a table named employees_day with 50 records. We can use this table to create another table for experimentation without affecting the original data.
+     **Syntax:**
+
+```sql
+CREATE TABLE new_table_name AS
+SELECT column_name(s)
+FROM existing_table
+WHERE condition;
+```
