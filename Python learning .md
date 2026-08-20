@@ -1,7 +1,7 @@
 # Python Fundamentals — My Learning Notes
 
 ## Overview
-#### Date : 17 Aug and 18 Aug
+#### Date : 17 Aug, 18 Aug and 19 Aug
 
 These are my Python learning notes from my initial learning phase.
 
@@ -337,6 +337,333 @@ Output:
 
 ---
 
+## 19 Aug — Additional Operators
+
+### Bitwise Operators
+
+**Definition:**
+
+Bitwise operators perform operations on the **individual binary bits (`0` and `1`)** of integer values.
+
+```text
+&   Bitwise AND
+|   Bitwise OR
+^   Bitwise XOR
+~   Bitwise NOT
+<<  Left Shift
+>>  Right Shift
+```
+
+#### `&` — Bitwise AND
+
+Returns `1` only when **both corresponding bits are `1`**.
+
+```python
+a = 13
+b = 9
+
+print(a & b)
+```
+
+```text
+13 = 1101
+ 9 = 1001
+
+    1101
+  & 1001
+  ------
+    1001
+```
+
+`1001 = 9`
+
+Output:
+
+```text
+9
+```
+
+#### `|` — Bitwise OR
+
+Returns `1` when **at least one corresponding bit is `1`**.
+
+```python
+a = 13
+b = 10
+
+print(a | b)
+```
+
+```text
+13 = 1101
+10 = 1010
+
+    1101
+  | 1010
+  ------
+    1111
+```
+
+`1111 = 15`
+
+Output:
+
+```text
+15
+```
+
+#### `^` — Bitwise XOR
+
+Returns `1` when the corresponding bits are **different**.
+
+```python
+a = 13
+b = 10
+
+print(a ^ b)
+```
+
+```text
+13 = 1101
+10 = 1010
+
+    1101
+  ^ 1010
+  ------
+    0111
+```
+
+`0111 = 7`
+
+Output:
+
+```text
+7
+```
+
+**Remember:**
+
+```text
+Same      → 0
+Different → 1
+```
+
+#### `~` — Bitwise NOT
+
+Reverses the bits of a number.
+
+In Python:
+
+```text
+~n = -(n + 1)
+```
+
+Example:
+
+```python
+a = 12
+
+print(~a)
+```
+
+Output:
+
+```text
+-13
+```
+
+#### `<<` — Left Shift
+
+Shifts the binary bits to the **left** by the specified number of positions.
+
+```python
+a = 7
+
+print(a << 2)
+```
+
+```text
+7 = 0111
+
+0111 << 2
+---------
+11100
+```
+
+`11100 = 28`
+
+Output:
+
+```text
+28
+```
+
+#### `>>` — Right Shift
+
+Shifts the binary bits to the **right** by the specified number of positions.
+
+```python
+a = 44
+
+print(a >> 2)
+```
+
+```text
+44 = 101100
+
+101100 >> 2
+-----------
+001011
+```
+
+`001011 = 11`
+
+Output:
+
+```text
+11
+```
+
+---
+
+### Identity Operators
+
+**Definition:**
+
+Identity operators check whether two variables **refer to the same object**.
+
+Operators:
+
+```text
+is
+is not
+```
+
+Example:
+
+```python
+x = [10, 20, 30]
+y = x
+z = [10, 20, 30]
+
+print(x is y)
+print(x is z)
+```
+
+Output:
+
+```text
+True
+False
+```
+
+- `x is y` → both refer to the **same object**.
+- `x is z` → different objects, even though the values are the same.
+
+**Important distinction:**
+
+```text
+==  → Checks whether values are equal
+is  → Checks whether objects are identical
+```
+
+---
+
+### Membership Operators
+
+**Definition:**
+
+Membership operators check whether a value **exists inside a sequence or collection**.
+
+Operators:
+
+```text
+in
+not in
+```
+
+Example with a list:
+
+```python
+tools = ["Python", "SQL", "Spark"]
+
+print("Spark" in tools)
+print("Java" not in tools)
+```
+
+Output:
+
+```text
+True
+True
+```
+
+- `"Spark" in tools` → Spark exists.
+- `"Java" not in tools` → Java doesn't exist.
+
+#### Membership Operators with Dictionary
+
+**Important:**
+
+> In a dictionary, `in` and `not in` check **keys by default**, not values.
+
+Example:
+
+```python
+student = {
+    "name": "Arun",
+    "age": 25,
+    "city": "Chennai"
+}
+
+print("name" in student)
+print("Arun" in student)
+```
+
+Output:
+
+```text
+True
+False
+```
+
+Why?
+
+```text
+"name" → key   → True
+"Arun" → value → False
+```
+
+To check values, use `.values()`:
+
+```python
+print("Arun" in student.values())
+```
+
+Output:
+
+```text
+True
+```
+
+To check keys explicitly, use `.keys()`:
+
+```python
+print("name" in student.keys())
+```
+
+Output:
+
+```text
+True
+```
+
+**Key point:**
+
+> In a dictionary, membership operators check keys by default. To check values, use `.values()`.
+
+---
+
 ## Quick Revision
 
 ```text
@@ -358,6 +685,19 @@ Python Fundamentals
     ├── Arithmetic
     ├── Comparison → Boolean (True / False)
     ├── Logical
-    └── Assignment
+    ├── Assignment
+    ├── Bitwise
+    │   ├── &
+    │   ├── |
+    │   ├── ^
+    │   ├── ~
+    │   ├── <<
+    │   └── >>
+    ├── Identity
+    │   ├── is
+    │   └── is not
+    └── Membership
+        ├── in
+        └── not in
+            └── Dictionary → checks keys by default
 ```
-
